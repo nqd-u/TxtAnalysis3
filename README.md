@@ -19,45 +19,15 @@ This project demonstrates sentiment analysis, key phrase extraction, and entity 
    - [Docker Engine](https://docs.docker.com/engine/install/) for Linux.
 2. Obtain an Azure Cognitive Services account and a valid Text Analysis API key and endpoint.
 
-### Running the Pre-Built Docker Image
+### Docker Hub Repository
 
-1. **Pull the Docker Image**
-   Download the pre-built containerized application from Docker Hub:
+The pre-built containerized application is available on Docker Hub:  
+[txtanalysis-app3](https://hub.docker.com/r/ning0107/txtanalysis-app3).
 
-   ```bash
-   docker pull <your-dockerhub-username>/txtanalysis-app
-   ```
-
-2. **Prepare the ************************************************************************`.env`************************************************************************ File**
-   Create a `.env` file in your local directory with the following content:
-
-   ```plaintext
-   AI_SERVICE_ENDPOINT=your-azure-endpoint
-   AI_SERVICE_KEY=your-azure-key
-   ```
-
-3. **Run the Container**
-   Mount your `.env` file into the container and expose the application port:
-
-   ```bash
-   docker run -d -p 8080:8080 \
-     -v $(pwd)/.env:/app/.env \
-     <your-dockerhub-username>/txtanalysis-app
-   ```
-
-   **Explanation**:
-
-   - `-v $(pwd)/.env:/app/.env`: Mounts your local `.env` file into the container.
-   - `-p 8080:8080`: Maps the container's port 8080 to your local machine's port 8080.
-
-4. **Access the Application**
-   Open your browser and visit:
-
-   ```
-   http://localhost:8080
-   ```
-
-   You can also use tools like `curl` or Postman to interact with the API.
+To pull the image:
+```bash
+docker pull ning0107/txtanalysis-app3:latest
+```
 
 ## Dataset Overview
 
@@ -102,4 +72,5 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 - [Azure Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/)
 - [Docker Hub](https://hub.docker.com/)
 
-The application is based on sample code of Azure.AI.TextAnalytics --version 5.3.0. It has been enhanced by adding support for `.env` files to securely manage the endpoint and key, and by containerizing the modified application for portability and ease of deployment. 
+The application is based on sample code of Azure.AI.TextAnalytics --version 5.3.0 and modify it by adding .env to ensure security of endpoint and key as well as containerizing the modified application. 
+
